@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analyze Playlist</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #121212; /* Dark mode background color */
+            color: #ffffff; /* Dark mode text color */
+            text-align: center; /* Center align content */
+        }
+        .container {
+            max-width: 500px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #333333; /* Dark mode container background color */
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.1); /* Adjust shadow color for dark mode */
+        }
+        h1 {
+            color: #ffffff; /* Header text color */
+            margin-bottom: 20px;
+        }
+        form {
+            display: flex;
+            flex-direction: column; /* Align items in a column */
+            align-items: center; /* Center align content */
+        }
+        input[type="text"] {
+            width: 250px;
+            padding: 10px;
+            border: 1px solid #cccccc;
+            border-radius: 5px;
+            margin: 0 auto; /* Center the input box horizontally */
+            margin-bottom: 10px; /* Add some space below the input box */
+            font-size: 16px;
+            background-color: #ffffff; /* Light mode input background color */
+            color: #333333; /* Light mode input text color */
+        }
+        input[type="submit"] {
+            padding: 10px 20px;
+            background-color: #1db954;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        input[type="submit"]:hover {
+            background-color: #168f3e;
+        }
+        .error-message {
+            color: #ff0000; /* Red color for error messages */
+            margin: 10px 0; /* Add some space around the message */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Enter Playlist Name</h1>
+        {% if error_message %}
+            <p class="error-message">{{ error_message }}</p>
+        {% endif %}
+        <form action="/analyze" method="post">
+            <input type="text" name="playlist_name" placeholder="Enter playlist name" required>
+            <input type="submit" value="Analyze">
+        </form>
+    </div>
+</body>
+</html>
+
